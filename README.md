@@ -22,7 +22,9 @@ You should create one R script called run_analysis.R that does the following.
 
 ###run_analysis.R
 
-The script (run_analysis.R) does the following:
+https://github.com/uioreanu/getdata-030-Course-Project/blob/master/run_analysis.R
+
+The script does the following:
 
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
@@ -32,6 +34,9 @@ The script (run_analysis.R) does the following:
 
 Script description
 
-more detailed script description is available in the file CodeBook.md 
+more detailed script description is available in the file:
+
+https://github.com/uioreanu/getdata-030-Course-Project/blob/master/CodeBook.md
+
 a code book that describes the variables, the data, and any transformations or work that were performed to clean up the data
 
