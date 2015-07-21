@@ -41,9 +41,9 @@ a tidy set with mean values for Mean and Standard Deviation across the entire da
 
 The R code below creates some introductory plots to better understand the subSet dataset:
 
-[logo]: https://raw.githubusercontent.com/uioreanu/getdata-030-Course-Project/master/plots/FrequencyBodyAccelerationJerkMagnitudeMean.png "FrequencyBodyAccelerationJerkMagnitudeMean"
-[logo]: https://raw.githubusercontent.com/uioreanu/getdata-030-Course-Project/master/plots/FrequencyBodyAccelerationJerkStdX.png "FrequencyBodyAccelerationJerkStdX"
-[logo]: https://raw.githubusercontent.com/uioreanu/getdata-030-Course-Project/master/plots/TimeBodyAccelerationMeanX.png "TimeBodyAccelerationMeanX"
+![FrequencyBodyAccelerationJerkMagnitudeMean](https://raw.githubusercontent.com/uioreanu/getdata-030-Course-Project/master/plots/FrequencyBodyAccelerationJerkMagnitudeMean.png)
+![FrequencyBodyAccelerationJerkStdX](https://raw.githubusercontent.com/uioreanu/getdata-030-Course-Project/master/plots/FrequencyBodyAccelerationJerkStdX.png)
+![TimeBodyAccelerationMeanX](https://raw.githubusercontent.com/uioreanu/getdata-030-Course-Project/master/plots/TimeBodyAccelerationMeanX.png)
 
 ```r
 X <- split(subSet, subSet$Activity)
