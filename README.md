@@ -1,4 +1,4 @@
-#Getting and Cleaning Data Course Project
+#"Getting and Cleaning Data" Course Project
 
 https://class.coursera.org/getdata-030
 
@@ -15,7 +15,7 @@ Calin Uioreanu 2015-07-21
 
 ###Tasks description
 
-The goal of this project is to prepare tidy data that can be used for later analysis for the project Human Activity Recognition Using Smartphones Data Set. The requirements are to create one R script called run_analysis.R that does the following:
+The goal of this project is to prepare a tidy data that can be used for later analysis for the project Human Activity Recognition Using Smartphones Data Set. The requirements are to create one R script called run_analysis.R that does the following:
 
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
@@ -36,4 +36,34 @@ a code book that describes the variables, the data, and any transformations or w
 
 The R code outputs several metrics as it develops, and outputs at the very end the [tidySet.txt](https://github.com/uioreanu/getdata-030-Course-Project/blob/master/tidySet.txt) TEXT file, containing
 a tidy set with mean values for Mean and Standard Deviation across the entire dataset, grouped by Individual Subject and Activitiy. The file is generated according to the Tidy Dataset principles.
+
+### Plots charts
+
+The R code below creates some introductory plots to better understand the subSet dataset:
+
+[logo]: https://github.com/uioreanu/getdata-030-Course-Project/blob/master/angle.X.gravityMean..png "angle.X.gravityMean"
+[logo]: https://github.com/uioreanu/getdata-030-Course-Project/blob/master/TimeBodyGyroscopeMeanX.png "TimeBodyGyroscopeMeanX"
+[logo]: https://github.com/uioreanu/getdata-030-Course-Project/blob/master/TimeGravityAccelerationMagnitudeMean.png "TimeGravityAccelerationMagnitudeMean"
+
+```r
+X <- split(subSet, subSet$Activity)
+table(subSet$Activity)
+# 
+# LAYING            SITTING           STANDING            WALKING WALKING_DOWNSTAIRS   WALKING_UPSTAIRS 
+# 1944               1777               1906               1722               1406               1544 
+
+# generate 86 plots for all different mean/std variables across all activities
+for (variable in colMeansStd) {
+  png(paste0('plots/', variable, '.png'), height=500, width = 800)
+
+    par(mfrow=c(2,3), oma=c(0,0,2,0))
+  for (i in 1:nrow(activity_labels)) {
+    activityTXT <- as.character(activity_labels$V2[i])
+    actX <- X[activityTXT][[1]]
+    plot(actX[,variable], type="l", ylab="", main=activityTXT, col=7+i)
+  }
+  title(variable, outer=TRUE)
+  dev.off()
+}
+```
 

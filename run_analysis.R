@@ -359,6 +359,31 @@ write.table(file = 'tidySet.txt', tidySet, row.names=FALSE)
 #######################################
 
 
+#######################################
+# short subset exploration
+X <- split(subSet, subSet$Activity)
+table(subSet$Activity)
+# 
+# LAYING            SITTING           STANDING            WALKING WALKING_DOWNSTAIRS   WALKING_UPSTAIRS 
+# 1944               1777               1906               1722               1406               1544 
+
+# generate 86 plots for all different mean/std variables across all activities
+for (variable in colMeansStd) {
+  png(paste0('plots/', variable, '.png'), height=500, width = 800)
+
+    par(mfrow=c(2,3), oma=c(0,0,2,0))
+  for (i in 1:nrow(activity_labels)) {
+    activityTXT <- as.character(activity_labels$V2[i])
+    actX <- X[activityTXT][[1]]
+    plot(actX[,variable], type="l", ylab="", main=activityTXT, col=7+i)
+  }
+  title(variable, outer=TRUE)
+  dev.off()
+}
+
+
+#######################################
+
 
 
 
