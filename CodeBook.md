@@ -3,9 +3,15 @@ author: Calin Uioreanu
 
 date:   2015-07-21
 
-###a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data
+###Code Book describing the variables, the data, and any transformations or work performed to clean up the data
 
 The raw data is loaded from the data directories, merged into one dataset, from this dataset the columns containing mean and standard deviation values are extracted, normalised and the result is written to a tidy dataset file.
+
+The main variables are:
+
+1. features, a large 44.1 Mb aggregated dataset created from the input files
+2. subSet, a subset of features with only the mean and std columns
+3. tidySet, the output tidy dataset aggregating subSet
 
 First step, cleaning up the environment and check if the data directory is present
 
@@ -153,8 +159,6 @@ dim(subSet)
 Part3 of the tasklist 
 
 ```r
-
-
 #######################################
 # PART 3
 # Uses descriptive activity names to name the activities in the data set
@@ -197,16 +201,11 @@ subSet <- dataSet[,c('Subject', 'Activity', meanColumns, stdColumns)]
 dim(subSet)
 #[1] 10299    88
 #######################################
-
-
 ```
 
 Part4 of the tasklist 
 
 ```r
-
-
-
 #######################################
 # PART 4
 # Appropriately labels the data set with descriptive variable names. 
@@ -308,14 +307,11 @@ length(columnNames)
 #[1] 88
 names(subSet) <- columnNames
 #######################################
-
-
 ```
 
 Part5 of the tasklist 
 
 ```r
-
 #######################################
 # PART 5
 # From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
